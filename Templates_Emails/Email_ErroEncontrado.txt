@@ -3,4 +3,4 @@
 <p>Segue a descri&ccedil;&atilde;o do erro e uma imagem do mesmo.</p>
 <p><strong>{0}</strong></p>
 <p>Atenciosamente,</p>
-<p><strong>RPA</strong></p>
+<p><strong>RPA - ROBÔ SANASA</strong></p>

@@ -2,5 +2,5 @@
 <p>O processo do rob&ocirc; <strong>{0}</strong> foi finalizado com sucesso.</p>
 <p>A atividade foi iniciada as <strong>{1}</strong> e finalizada as <strong>{2}</strong>.</p>
 <p>Atenciosamente,</p>
-<p><em><strong>RPA</strong></em>.</p>
+<p><em><strong>RPA - ROBÔ SANASA</strong></em>.</p>
 <p><br></p>

@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
 <Activity mc:Ignorable="sap sap2010" x:Class="sq_PreencherAnalitico" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="DataTable do Relatório Analítico" Name="arg_inDtRelatorioAnalitico" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="arg_outIEPlanilhaAnalitico" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>899,618</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1170,915</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -77,35 +77,35 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Web</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Adiciona no arquivo Excel do Relatório Analítico as informações coletadas durante a execução" DisplayName="wf_PreencherAnalitico" sap:VirtualizedContainerService.HintSize="389,553" sap2010:WorkflowViewState.IdRef="Sequence_79">
+  <Sequence sap2010:Annotation.AnnotationText="Adiciona no arquivo Excel do Relatório Analítico as informações coletadas durante a execução" DisplayName="wf_PreencherAnalitico" sap:VirtualizedContainerService.HintSize="476,850" sap2010:WorkflowViewState.IdRef="Sequence_79">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="347,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
+    <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[arg_outIEPlanilhaAnalitico]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["C:\robo\prj_HC_ContasMunicipais_SANASA\Data\Relatório_Analítico.xlsx"]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[arg_outIEPlanilhaAnalitico]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Input\Relatório_Analítico.xlsx" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">
-          <Literal x:TypeArguments="x:String">wf_PreencherAnalitico</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">
-          <Literal x:TypeArguments="x:Boolean" Value="True" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">wf_PreencherAnalitico</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">True</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:AppendRange DataTable="[arg_inDtRelatorioAnalitico]" DisplayName="Append Range - Relatório Analítico" sap:VirtualizedContainerService.HintSize="347,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="2. Analítico" WorkbookPath="Data\Input\Relatório_Analítico.xlsx" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="347,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
+    <ui:AppendRange DataTable="[arg_inDtRelatorioAnalitico]" DisplayName="Append Range - Relatório Analítico" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="2. Analítico" WorkbookPath="[arg_outIEPlanilhaAnalitico]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">
-          <Literal x:TypeArguments="x:String">wf_PreencherAnalitico</Literal>
-        </InArgument>
-        <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">
-          <Literal x:TypeArguments="x:Boolean" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">wf_PreencherAnalitico</InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">False</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
