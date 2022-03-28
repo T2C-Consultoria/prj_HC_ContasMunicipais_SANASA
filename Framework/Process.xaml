@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1154,2156</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1154,1984</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -48,7 +48,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -85,14 +85,13 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="480,2091" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="480,1819" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="var_strCodConsumidor" />
       <Variable x:TypeArguments="x:String" Name="var_strLogin" />
       <Variable x:TypeArguments="x:Boolean" Name="var_boolErroLogin" />
       <Variable x:TypeArguments="x:String" Name="var_strMensagemErro" />
       <Variable x:TypeArguments="x:String" Name="var_strResultadoSanasaURL" />
-      <Variable x:TypeArguments="x:String" Name="var_strCaminhoDownPasta" />
       <Variable x:TypeArguments="x:String" Name="var_strMesRef" />
       <Variable x:TypeArguments="x:String" Name="var_strMesAtual" />
       <Variable x:TypeArguments="x:String" Name="var_strCentroCusto" />
@@ -102,6 +101,7 @@
       <Variable x:TypeArguments="x:String" Name="var_strCaminhoPastaDownload" />
       <Variable x:TypeArguments="x:String" Name="var_strVencFatura" />
       <Variable x:TypeArguments="x:Boolean" Name="var_boolErroDownload" />
+      <Variable x:TypeArguments="x:String" Name="var_strLinkPortal" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -129,20 +129,20 @@
               <InArgument x:TypeArguments="x:String">[arg_inQueTransactionItem.SpecificContent("CNPJ").ToString]</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[var_strCaminhoDownPasta]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[arg_inDicConfig("DownloadSanasaHVC_CaminhoDownload_txt_Faturas").ToString]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
             <ui:AssignOperation.To>
               <OutArgument x:TypeArguments="x:String">[var_strCentroCusto]</OutArgument>
             </ui:AssignOperation.To>
             <ui:AssignOperation.Value>
               <InArgument x:TypeArguments="x:String">[arg_inQueTransactionItem.SpecificContent("Centro de Custo").ToString]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[var_strLinkPortal]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">https://www.sanasa.com.br/</InArgument>
             </ui:AssignOperation.Value>
           </ui:AssignOperation>
         </scg:List>
@@ -204,9 +204,9 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,1222" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,950" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,973" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,701" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" Name="var_strMes" />
             <Variable x:TypeArguments="x:String" Name="var_strAno" />
@@ -220,28 +220,57 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Abrir_Portal_Navegador workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="WFs\wf_Abrir_Portal_Navegador.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">[arg_inDicConfig("DownloadSanasaHVC_Caminho_txt_UrlPortal").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_io_ResultadoSanasaURL">[var_strResultadoSanasaURL]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_inDicConfig(&quot;DownloadSanasaHVC_Caminho_txt_UrlPortal&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_io_ResultadoSanasaURL">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLinkPortal" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Acessar_Portal workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="WFs\wf_Acessar_Portal.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">[var_strResultadoSanasaURL]</InArgument>
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_out_boolErroLogin">[var_boolErroLogin]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="arg_out_strMensagemErro">[var_strMensagemErro]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strImagemExcecao">[arg_inDicConfig("Imagem_Excecao").ToString]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strLogin">[var_strLogin]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCodConsumidor">[var_strCodConsumidor]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLinkPortal" />
+              </InArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_out_boolErroLogin">
+                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="var_boolErroLogin" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_out_strMensagemErro">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMensagemErro" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strImagemExcecao">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_inDicConfig(&quot;Imagem_Excecao&quot;).ToString" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strLogin">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
+              </InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCodConsumidor">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Download_Fatura workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="WFs\wf_Download_Fatura.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:Int32" x:Key="arg_in_intIndex" />
-              <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_out_boolErroDownload">[var_boolErroDownload]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_NomeArquivo">[var_strNomeArquivo]</InArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="arg_io_strMes">[var_strMes]</InOutArgument>
-              <InOutArgument x:TypeArguments="x:String" x:Key="arg_io_strAno">[var_strAno]</InOutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="arg_out_strMensagemErro">[var_strMensagemErro]</OutArgument>
+              <OutArgument x:TypeArguments="x:Boolean" x:Key="arg_out_boolErroDownload">
+                <mva:VisualBasicReference x:TypeArguments="x:Boolean" ExpressionText="var_boolErroDownload" />
+              </OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_NomeArquivo">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeArquivo" />
+              </InArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="arg_io_strMes">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMes" />
+              </InOutArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="arg_io_strAno">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strAno" />
+              </InOutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_out_strMensagemErro">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMensagemErro" />
+              </OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
+                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -250,28 +279,6 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:InvokeWorkflowFile>
-          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_3">
-            <ui:CommentOut.Body>
-              <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                <sap:WorkflowViewStateService.ViewState>
-                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  </scg:Dictionary>
-                </sap:WorkflowViewStateService.ViewState>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Leitura_PFD_Fatura workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="wf_Leitura_PFD_Fatura.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="arg_in_CaminhoCompletoPasta">[var_strCaminhoCompletoPasta]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-              </Sequence>
-            </ui:CommentOut.Body>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:CommentOut>
           <Assign sap2010:Annotation.AnnotationText="Nome do Arquivo PDF completo" DisplayName="Assign " sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[var_strNomeArquivoCompleto]</OutArgument>
@@ -285,15 +292,7 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_CaminhoPastasDownload workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="WFs\wf_CaminhoPastasDownload.xaml">
-            <ui:InvokeWorkflowFile.Arguments>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCaminhoPastaOrigem">[var_strCaminhoDownPasta]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="arg_out_strCaminhoPastaDownload">[var_strCaminhoDownPasta]</OutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCentroCusto">[var_strCentroCusto]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strNomeArquivoCompleto">[var_strNomeArquivoCompleto]</InArgument>
-            </ui:InvokeWorkflowFile.Arguments>
-          </ui:InvokeWorkflowFile>
-          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{var_strCodConsumidor, var_strLogin, &quot;Executado com sucesso!&quot;}]" DataTable="[arg_io_dtStatusAtualizado]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{var_strCodConsumidor, var_strLogin, &quot;Executado com sucesso!&quot;}]" DataTable="[arg_io_dtStatusAtualizado]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddDataRow_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>

@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1004,819</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1154,568</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_Abrir_Portal_Navegador_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -72,7 +72,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Entrada: arg_in_strUrlPortal - que pega através do asset o link do site do portal&#xA;&#xA;Processamento: Abre o portal e maximiza janela" DisplayName="wf_Abrir_Portal_Navegador" sap:VirtualizedContainerService.HintSize="509,522" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Entrada: arg_in_strUrlPortal - que pega através do asset o link do site do portal&#xA;&#xA;Processamento: Abre o portal e maximiza janela" DisplayName="wf_Abrir_Portal_Navegador" sap:VirtualizedContainerService.HintSize="509,403" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -80,7 +80,6 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message - Acesso portal" sap:VirtualizedContainerService.HintSize="467,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Acessando portal: &quot; + arg_in_strUrlPortal]" />
-    <ui:ReadTextFile Content="[arg_io_ResultadoSanasaURL]" DisplayName="Read Text File" FileName="[arg_in_strUrlPortal]" sap:VirtualizedContainerService.HintSize="467,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
     <ui:OpenBrowser AutomaticallyDownloadWebDriver="{x:Null}" CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser - Acessar Corsan" sap:VirtualizedContainerService.HintSize="467,123" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="[arg_io_ResultadoSanasaURL]">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
