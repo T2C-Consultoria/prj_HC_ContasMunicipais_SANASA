@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1170,1046</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1794,1046</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="108">
@@ -109,14 +109,18 @@
       <AssemblyReference>UiPath.Web</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="ReFrame T2C" sap:VirtualizedContainerService.HintSize="729,981" sap2010:WorkflowViewState.IdRef="Sequence_60">
     <Sequence.Variables>
-      <Variable x:TypeArguments="s:String[]" Default="[{}]" Name="var_arrScreenshotFiles" />
+      <Variable x:TypeArguments="s:String[]" Name="var_arrScreenshotFiles">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{}" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="sd:DataTable" Name="var_dtDadosSANASA" />
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="var_dicConfig" />
       <Variable x:TypeArguments="sd:DataTable" Name="var_dtDadosPlanilha" />
@@ -257,9 +261,9 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <Transition.To>
-              <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="566,1295" sap2010:WorkflowViewState.IdRef="State_5">
+              <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,187" sap2010:WorkflowViewState.IdRef="State_5">
                 <State.Entry>
-                  <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="520,824" sap2010:WorkflowViewState.IdRef="TryCatch_27">
+                  <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="518,1032" sap2010:WorkflowViewState.IdRef="TryCatch_27">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -302,51 +306,6 @@
                               <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="arg_io_dtStatusAtualizado" />
                             </InOutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="arg_in_strImagemExcecao" />
-                            <InArgument x:TypeArguments="x:String" x:Key="var_strTransactionField1">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField1" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="var_strTransactionField2">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField2" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="var_strTransactionID">
-                              <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionID" />
-                            </InArgument>
-                            <OutArgument x:TypeArguments="ui:QueueItem" x:Key="var_queTransactionItem">
-                              <mva:VisualBasicReference x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:Int32" x:Key="var_intRetryNumber">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intRetryNumber" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:Int32" x:Key="var_intTransactionNumber">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intTransactionNumber" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="s:String[]" x:Key="var_arrScreenshotFiles">
-                              <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="var_arrScreenshotFiles" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="ss:SecureString" x:Key="var_secEmailPass">
-                              <mva:VisualBasicReference x:TypeArguments="ss:SecureString" ExpressionText="var_secEmailPass" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="var_strEmailUser">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strEmailUser" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="var_strNomeProjeto">
-                              <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strNomeProjeto" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:Int32" x:Key="var_intConsecutiveSystemExceptions">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intConsecutiveSystemExceptions" />
-                            </OutArgument>
-                            <InArgument x:TypeArguments="s:DateTime" x:Key="var_datInicioItem">
-                              <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datInicioItem" />
-                            </InArgument>
-                            <OutArgument x:TypeArguments="sd:DataTable" x:Key="var_dtRelatorioAnalitico">
-                              <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtRelatorioAnalitico" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="x:Int32" x:Key="var_intItensProcessados">
-                              <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intItensProcessados" />
-                            </OutArgument>
-                            <OutArgument x:TypeArguments="ui:BusinessRuleException" x:Key="var_busBusinessException">
-                              <mva:VisualBasicReference x:TypeArguments="ui:BusinessRuleException" ExpressionText="var_busBusinessException" />
-                            </OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -365,48 +324,20 @@
                           <TryCatch.Try>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_77" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField1" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField2" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionID" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">
-                                  <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="Nothing" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">
-                                  <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="Nothing" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-                                  <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="var_dicConfig" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                  <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                </InArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">
-                                  <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intRetryNumber" />
-                                </InOutArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">
-                                  <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intTransactionNumber" />
-                                </InOutArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">
-                                  <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intConsecutiveSystemExceptions" />
-                                </InOutArgument>
-                                <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">
-                                  <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="var_arrScreenshotFiles" />
-                                </InOutArgument>
-                                <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">
-                                  <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="var_secEmailPass" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strEmailUser" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeProjeto" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">[var_strTransactionField1]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">[var_strTransactionField2]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">[var_strTransactionID]</InArgument>
+                                <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">[Nothing]</InArgument>
+                                <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">[Nothing]</InArgument>
+                                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[var_dicConfig]</InArgument>
+                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
+                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">[var_intRetryNumber]</InOutArgument>
+                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">[var_intTransactionNumber]</InOutArgument>
+                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">[var_intConsecutiveSystemExceptions]</InOutArgument>
+                                <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">[var_arrScreenshotFiles]</InOutArgument>
+                                <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">[var_secEmailPass]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">[var_strEmailUser]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">[var_strNomeProjeto]</InArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                           </TryCatch.Try>
@@ -429,27 +360,17 @@
                           <TryCatch.Finally>
                             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_AddRelatorioAnalitico workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_75" UnSafe="False" WorkflowFileName="Workflows_T2C\Relatorios\wf_AddRelatorioAnalitico.xaml">
                               <ui:InvokeWorkflowFile.Arguments>
-                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">
-                                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_dicConfig(&quot;OrchestratorQueueName&quot;).ToString" />
-                                </InArgument>
-                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                  <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">[var_dicConfig("OrchestratorQueueName").ToString]</InArgument>
+                                <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDescricaoExcecao">
                                   <Literal x:TypeArguments="x:String" Value="" />
                                 </InArgument>
-                                <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">
-                                  <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datInicioItem" />
-                                </InArgument>
+                                <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">[var_datInicioItem]</InArgument>
                                 <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTipoExcecao">
                                   <Literal x:TypeArguments="x:String" Value="" />
                                 </InArgument>
-                                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">
-                                  <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtRelatorioAnalitico" />
-                                </InOutArgument>
-                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">
-                                  <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intItensProcessados" />
-                                </InOutArgument>
+                                <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">[var_dtRelatorioAnalitico]</InOutArgument>
+                                <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">[var_intItensProcessados]</InOutArgument>
                               </ui:InvokeWorkflowFile.Arguments>
                             </ui:InvokeWorkflowFile>
                           </TryCatch.Finally>
@@ -457,7 +378,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="486,21" sap2010:WorkflowViewState.IdRef="Catch`1_28">
+                      <Catch x:TypeArguments="ui:BusinessRuleException" sap:VirtualizedContainerService.HintSize="484,21" sap2010:WorkflowViewState.IdRef="Catch`1_28">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -468,7 +389,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="ui:BusinessRuleException" Name="Exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="480,531" sap2010:WorkflowViewState.IdRef="Sequence_57">
+                          <Sequence DisplayName="Handle Business Exception" sap:VirtualizedContainerService.HintSize="480,580" sap2010:WorkflowViewState.IdRef="Sequence_57">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -483,7 +404,7 @@
                                 <InArgument x:TypeArguments="ui:BusinessRuleException">[Exception]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <TryCatch DisplayName="Try Catch Set Transaction Status (BRE)" sap:VirtualizedContainerService.HintSize="438,339" sap2010:WorkflowViewState.IdRef="TryCatch_25">
+                            <TryCatch DisplayName="Try Catch Set Transaction Status (BRE)" sap:VirtualizedContainerService.HintSize="438,431" sap2010:WorkflowViewState.IdRef="TryCatch_25">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -499,48 +420,20 @@
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_86" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                     <ui:InvokeWorkflowFile.Arguments>
-                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField1" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField2" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionID" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">
-                                        <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="Nothing" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">
-                                        <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="var_busBusinessException" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-                                        <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="var_dicConfig" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                        <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                      </InArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intRetryNumber" />
-                                      </InOutArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intTransactionNumber" />
-                                      </InOutArgument>
-                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">
-                                        <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intConsecutiveSystemExceptions" />
-                                      </InOutArgument>
-                                      <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">
-                                        <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="var_arrScreenshotFiles" />
-                                      </InOutArgument>
-                                      <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">
-                                        <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="var_secEmailPass" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strEmailUser" />
-                                      </InArgument>
-                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">
-                                        <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeProjeto" />
-                                      </InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">[var_strTransactionField1]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">[var_strTransactionField2]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">[var_strTransactionID]</InArgument>
+                                      <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">[Nothing]</InArgument>
+                                      <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">[var_busBusinessException]</InArgument>
+                                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[var_dicConfig]</InArgument>
+                                      <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">[var_intRetryNumber]</InOutArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">[var_intTransactionNumber]</InOutArgument>
+                                      <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">[var_intConsecutiveSystemExceptions]</InOutArgument>
+                                      <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">[var_arrScreenshotFiles]</InOutArgument>
+                                      <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">[var_secEmailPass]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">[var_strEmailUser]</InArgument>
+                                      <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">[var_strNomeProjeto]</InArgument>
                                     </ui:InvokeWorkflowFile.Arguments>
                                   </ui:InvokeWorkflowFile>
                                 </Sequence>
@@ -564,27 +457,13 @@
                               <TryCatch.Finally>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_AddRelatorioAnalitico workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_76" UnSafe="False" WorkflowFileName="Workflows_T2C\Relatorios\wf_AddRelatorioAnalitico.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_dicConfig(&quot;OrchestratorQueueName&quot;).ToString" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                      <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDescricaoExcecao">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_busBusinessException.Message" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">
-                                      <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datInicioItem" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTipoExcecao">
-                                      <Literal x:TypeArguments="x:String">Business</Literal>
-                                    </InArgument>
-                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">
-                                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtRelatorioAnalitico" />
-                                    </InOutArgument>
-                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">
-                                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intItensProcessados" />
-                                    </InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">[var_dicConfig("OrchestratorQueueName").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDescricaoExcecao">[var_busBusinessException.Message]</InArgument>
+                                    <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">[var_datInicioItem]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTipoExcecao">Business</InArgument>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">[var_dtRelatorioAnalitico]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">[var_intItensProcessados]</InOutArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                               </TryCatch.Finally>
@@ -592,10 +471,10 @@
                           </Sequence>
                         </ActivityAction>
                       </Catch>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="486,640" sap2010:WorkflowViewState.IdRef="Catch`1_30">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="484,21" sap2010:WorkflowViewState.IdRef="Catch`1_30">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
@@ -603,7 +482,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                           </ActivityAction.Argument>
-                          <Sequence DisplayName="Handle System Exception" sap:VirtualizedContainerService.HintSize="480,531" sap2010:WorkflowViewState.IdRef="Sequence_58">
+                          <Sequence DisplayName="Handle System Exception" sap:VirtualizedContainerService.HintSize="480,488" sap2010:WorkflowViewState.IdRef="Sequence_58">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -627,48 +506,20 @@
                               <TryCatch.Try>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SetTransactionStatus workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_79" UnSafe="False" WorkflowFileName="Framework\SetTransactionStatus.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField1" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionField2" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strTransactionID" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">
-                                      <mva:VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="var_expSystemException" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">
-                                      <mva:VisualBasicValue x:TypeArguments="ui:BusinessRuleException" ExpressionText="Nothing" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="var_dicConfig" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                      <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                    </InArgument>
-                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">
-                                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intRetryNumber" />
-                                    </InOutArgument>
-                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">
-                                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intTransactionNumber" />
-                                    </InOutArgument>
-                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">
-                                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intConsecutiveSystemExceptions" />
-                                    </InOutArgument>
-                                    <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">
-                                      <mva:VisualBasicReference x:TypeArguments="s:String[]" ExpressionText="var_arrScreenshotFiles" />
-                                    </InOutArgument>
-                                    <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">
-                                      <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="var_secEmailPass" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strEmailUser" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeProjeto" />
-                                    </InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField1">[var_strTransactionField1]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionField2">[var_strTransactionField2]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTransactionID">[var_strTransactionID]</InArgument>
+                                    <InArgument x:TypeArguments="s:Exception" x:Key="arg_inExpSystemException">[var_expSystemException]</InArgument>
+                                    <InArgument x:TypeArguments="ui:BusinessRuleException" x:Key="arg_inBusBusinessException">[Nothing]</InArgument>
+                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[var_dicConfig]</InArgument>
+                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntRetryNumber">[var_intRetryNumber]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntTransactionNumber">[var_intTransactionNumber]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntConsecutiveSystemExceptions">[var_intConsecutiveSystemExceptions]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="s:String[]" x:Key="arg_ioArrScreenshotFiles">[var_arrScreenshotFiles]</InOutArgument>
+                                    <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecEmailPass">[var_secEmailPass]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailUser">[var_strEmailUser]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">[var_strNomeProjeto]</InArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                               </TryCatch.Try>
@@ -691,27 +542,13 @@
                               <TryCatch.Finally>
                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_AddRelatorioAnalitico workflow" sap:VirtualizedContainerService.HintSize="379,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_65" UnSafe="False" WorkflowFileName="Workflows_T2C\Relatorios\wf_AddRelatorioAnalitico.xaml">
                                   <ui:InvokeWorkflowFile.Arguments>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_dicConfig(&quot;OrchestratorQueueName&quot;).ToString" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">
-                                      <mva:VisualBasicValue x:TypeArguments="ui:QueueItem" ExpressionText="var_queTransactionItem" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDescricaoExcecao">
-                                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_expSystemException.Message" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">
-                                      <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datHoraInicio" />
-                                    </InArgument>
-                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTipoExcecao">
-                                      <Literal x:TypeArguments="x:String">System Exception</Literal>
-                                    </InArgument>
-                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">
-                                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtRelatorioAnalitico" />
-                                    </InOutArgument>
-                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">
-                                      <mva:VisualBasicReference x:TypeArguments="x:Int32" ExpressionText="var_intItensProcessados" />
-                                    </InOutArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchestratorQueueName">[var_dicConfig("OrchestratorQueueName").ToString]</InArgument>
+                                    <InArgument x:TypeArguments="ui:QueueItem" x:Key="arg_inQueTransactionItem">[var_queTransactionItem]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDescricaoExcecao">[var_expSystemException.Message]</InArgument>
+                                    <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatInicioItem">[var_datHoraInicio]</InArgument>
+                                    <InArgument x:TypeArguments="x:String" x:Key="arg_inStrTipoExcecao">System Exception</InArgument>
+                                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="arg_ioDtRelatorioAnalitico">[var_dtRelatorioAnalitico]</InOutArgument>
+                                    <InOutArgument x:TypeArguments="x:Int32" x:Key="arg_ioIntItensProcessados">[var_intItensProcessados]</InOutArgument>
                                   </ui:InvokeWorkflowFile.Arguments>
                                 </ui:InvokeWorkflowFile>
                               </TryCatch.Finally>
@@ -746,7 +583,7 @@
                       <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="var_expSystemException IsNot Nothing" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
                     </Transition.Condition>
                     <Transition.To>
-                      <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Leia o arquivo de configuração e inicialize os aplicativos usados no processo." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="254,118" sap2010:WorkflowViewState.IdRef="State_8">
+                      <State x:Name="__ReferenceID3" sap2010:Annotation.AnnotationText="Leia o arquivo de configuração e inicialize os aplicativos usados no processo." DisplayName="Initialization" sap:VirtualizedContainerService.HintSize="1043,5638" sap2010:WorkflowViewState.IdRef="State_8">
                         <State.Entry>
                           <TryCatch DisplayName="Try initializing settings and applications" sap:VirtualizedContainerService.HintSize="997,5220" sap2010:WorkflowViewState.IdRef="TryCatch_22">
                             <sap:WorkflowViewStateService.ViewState>
@@ -939,8 +776,15 @@
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Leitura_PlanilhaControle workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_85" UnSafe="False" WorkflowFileName="WFs\wf_Leitura_PlanilhaControle.xaml">
                                                   <ui:InvokeWorkflowFile.Arguments>
                                                     <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCaminhoPlanilha" />
-                                                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_out_dtDadosPlanilha">[var_dtDadosPlanilha]</OutArgument>
-                                                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_outdtDadosSANASAHVC">[var_dtDadosSANASA]</OutArgument>
+                                                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_out_dtDadosPlanilha">
+                                                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtDadosPlanilha" />
+                                                    </OutArgument>
+                                                    <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_outdtDadosSANASAHVC">
+                                                      <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtDadosSANASA" />
+                                                    </OutArgument>
+                                                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
+                                                      <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="var_dicConfig" />
+                                                    </InArgument>
                                                   </ui:InvokeWorkflowFile.Arguments>
                                                 </ui:InvokeWorkflowFile>
                                                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Add_ItensFila workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_84" UnSafe="False" WorkflowFileName="WFs\wf_Add_ItensFila.xaml">
@@ -1066,7 +910,7 @@
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
                                       <TryCatch.Try>
-                                        <Sequence sap:VirtualizedContainerService.HintSize="515,529" sap2010:WorkflowViewState.IdRef="Sequence_91">
+                                        <Sequence sap:VirtualizedContainerService.HintSize="515,498" sap2010:WorkflowViewState.IdRef="Sequence_91">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1077,7 +921,7 @@
                                               <scg:Dictionary x:TypeArguments="x:String, Argument" />
                                             </ui:InvokeWorkflowFile.Arguments>
                                           </ui:InvokeWorkflowFile>
-                                          <Sequence sap:VirtualizedContainerService.HintSize="473,285" sap2010:WorkflowViewState.IdRef="Sequence_92">
+                                          <Sequence sap:VirtualizedContainerService.HintSize="473,254" sap2010:WorkflowViewState.IdRef="Sequence_92">
                                             <Sequence.Variables>
                                               <Variable x:TypeArguments="x:String" Name="var_strTemplatePlanilha" />
                                             </Sequence.Variables>
@@ -1087,17 +931,9 @@
                                                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                                               <ui:MultipleAssign.AssignOperations>
                                                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-                                                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
-                                                    <ui:AssignOperation.To>
-                                                      <OutArgument x:TypeArguments="x:String">[var_strCorpoEmail]</OutArgument>
-                                                    </ui:AssignOperation.To>
-                                                    <ui:AssignOperation.Value>
-                                                      <InArgument x:TypeArguments="x:String">[var_dicConfig("Caminho_txt_CorpoEmail").ToString]</InArgument>
-                                                    </ui:AssignOperation.Value>
-                                                  </ui:AssignOperation>
                                                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
                                                     <ui:AssignOperation.To>
                                                       <OutArgument x:TypeArguments="x:String">[var_strPastaOrch]</OutArgument>
@@ -1146,7 +982,7 @@
                                             <ActivityAction.Argument>
                                               <DelegateInArgument x:TypeArguments="s:Exception" Name="Exception" />
                                             </ActivityAction.Argument>
-                                            <Sequence DisplayName="Failed to close applications, so kill processes" sap:VirtualizedContainerService.HintSize="376,335" sap2010:WorkflowViewState.IdRef="Sequence_59">
+                                            <Sequence DisplayName="Failed to close applications, so kill processes" sap:VirtualizedContainerService.HintSize="376,176" sap2010:WorkflowViewState.IdRef="Sequence_59">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1244,45 +1080,19 @@
                                           </If>
                                           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_EmailRelatorioErro workflow" sap:VirtualizedContainerService.HintSize="549,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_58" UnSafe="False" WorkflowFileName="Workflows_T2C\Email\wf_Send_EmailFinal.xaml">
                                             <ui:InvokeWorkflowFile.Arguments>
-                                              <InArgument x:TypeArguments="s:String[]" x:Key="arg_inArrScreenshotFiles">
-                                                <mva:VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="var_arrScreenshotFiles" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDestinatario">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_dicConfig(&quot;EmailDestinatarios&quot;).ToString" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrUsername">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strEmailUser" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecSecurePassword">
-                                                <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="var_strPassw" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrAssuntoEmail">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Execução finalizada - &quot; + var_strNomeProjeto" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeProjeto" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatHoraFinal">
-                                                <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datHoraFinal" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatHoraInicio">
-                                                <mva:VisualBasicValue x:TypeArguments="s:DateTime" ExpressionText="var_datHoraInicio" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrCorpoEmail">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strCorpoEmail" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailRemetente">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strEmailRemetente" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchFolder">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strPastaOrch" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-                                                <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="var_dicConfig" />
-                                              </InArgument>
-                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inIEPlanilhaAnalitico">
-                                                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_IEPlanilhaAnalitico" />
-                                              </InArgument>
+                                              <InArgument x:TypeArguments="s:String[]" x:Key="arg_inArrScreenshotFiles">[var_arrScreenshotFiles]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrDestinatario">[var_dicConfig("EmailDestinatarios").ToString]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrUsername">[var_strEmailUser]</InArgument>
+                                              <InArgument x:TypeArguments="ss:SecureString" x:Key="arg_inSecSecurePassword">[var_strPassw]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrAssuntoEmail">["Execução finalizada - " + var_strNomeProjeto]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeProjeto">[var_strNomeProjeto]</InArgument>
+                                              <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatHoraFinal">[var_datHoraFinal]</InArgument>
+                                              <InArgument x:TypeArguments="s:DateTime" x:Key="arg_inDatHoraInicio">[var_datHoraInicio]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrCorpoEmail">[var_strCorpoEmail]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrEmailRemetente">[var_strEmailRemetente]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrOrchFolder">[var_strPastaOrch]</InArgument>
+                                              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[var_dicConfig]</InArgument>
+                                              <InArgument x:TypeArguments="x:String" x:Key="arg_inIEPlanilhaAnalitico">[var_IEPlanilhaAnalitico]</InArgument>
                                             </ui:InvokeWorkflowFile.Arguments>
                                           </ui:InvokeWorkflowFile>
                                           <If Condition="[var_dicConfig(&quot;TelegramMensagem&quot;).ToString.ToUpper.Equals(&quot;SIM&quot;)]" DisplayName="Enviar mensagem Telegram" sap:VirtualizedContainerService.HintSize="549,289" sap2010:WorkflowViewState.IdRef="If_38">
@@ -1330,7 +1140,6 @@
                                 </sap:WorkflowViewStateService.ViewState>
                                 <State.Variables>
                                   <Variable x:TypeArguments="x:String" Name="var_strCaminhoPlanilhaTemp" />
-                                  <Variable x:TypeArguments="x:String" Name="var_strCorpoEmail" />
                                   <Variable x:TypeArguments="x:String" Name="var_strPastaOrch" />
                                   <Variable x:TypeArguments="x:String" Name="var_strResultCorpoEmail" />
                                   <Variable x:TypeArguments="x:String" Name="var_strEmailRemetente" />
@@ -1444,7 +1253,7 @@
     </StateMachine>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="687,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="478,260" sap2010:WorkflowViewState.IdRef="Sequence_95">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,260" sap2010:WorkflowViewState.IdRef="Sequence_95">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>

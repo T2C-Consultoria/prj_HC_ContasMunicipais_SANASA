@@ -1,9 +1,0 @@
-Prezados,
-
-O processo de Download de Faturas foi efetuada com sucesso/erro.
-Segue anexo o relatório com informações da execução.
-
-A atividade foi iniciada em <dataIniciado> às <horaIniciado> e finalizada em <dataFinalizada> às <horaFinalizada>
-
-Atenciosamente,
-RPA - Robô SANASA
