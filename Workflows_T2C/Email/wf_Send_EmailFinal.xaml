@@ -38,7 +38,7 @@
   <this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
     <InArgument x:TypeArguments="x:String" />
   </this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
-  <sap:VirtualizedContainerService.HintSize>1794,1124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1500,1124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">

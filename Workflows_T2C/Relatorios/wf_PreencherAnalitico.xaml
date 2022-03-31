@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="DataTable do Relatório Analítico" Name="arg_inDtRelatorioAnalitico" Type="InArgument(sd:DataTable)" />
     <x:Property Name="arg_outIEPlanilhaAnalitico" Type="OutArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1794,915</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1500,915</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -92,7 +92,7 @@
         <OutArgument x:TypeArguments="x:String">[arg_outIEPlanilhaAnalitico]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">["C:\robo\Download_Faturas\Relatorios Enviados\Relatório_Analítico" + Now.ToString("dd-MM-yyyy") + ".xlsx"]</InArgument>
+        <InArgument x:TypeArguments="x:String">["C:\robo\Download_Faturas\Relatorios Enviados\Relatório_Analítico_" + Now.ToString("dd-MM-yyyy") + ".xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:CopyFile ContinueOnError="{x:Null}" Destination="[arg_outIEPlanilhaAnalitico]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,157" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="Data\Input\Relatório_Analítico.xlsx" />
