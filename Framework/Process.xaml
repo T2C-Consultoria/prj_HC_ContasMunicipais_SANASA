@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1498,1427</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1498,1227</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,17 +84,17 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="478,1362" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="473,1162" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strCodConsumidor" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="CNPJ necessário para realizar o login, Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strLogin" />
-      <Variable x:TypeArguments="x:String" Name="var_strMesRef" />
-      <Variable x:TypeArguments="x:String" Name="var_strCentroCusto" />
-      <Variable x:TypeArguments="x:String" Name="var_strNomeArquivo" />
-      <Variable x:TypeArguments="x:String" Name="var_strData" />
-      <Variable x:TypeArguments="x:String" Name="var_strVencFatura" />
-      <Variable x:TypeArguments="x:String" Name="var_strLinkPortal" />
-      <Variable x:TypeArguments="x:String" Name="var_strAnoRef" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Mês de referência da fatura, informação extraída de um argumento no wf acessar portal" Name="var_strMesRef" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Informação da Planilha de faturas, vindo da fila do orch" Name="var_strCentroCusto" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Nome e caminho completo do arquivo" Name="var_strNomeArquivo" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Variável contendo info do dia de hoje." Name="var_strData" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="URL do portal da SANASA" Name="var_strLinkPortal" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Ano de referência da fatura, informação extraída de um argumento no wf acessar portal" Name="var_strAnoRef" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Pasta onde será salva o PDF da fatura" Name="var_strCaminhoPasta" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -102,8 +102,8 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="436,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando Processo&quot;]" />
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Pega as informações da Fila" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="436,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="431,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando Processo&quot;]" />
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Pega as informações da Fila" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -146,34 +146,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Informações para Salvar/Nome do Arquivo " DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="436,162" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
-      <ui:MultipleAssign.AssignOperations>
-        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[var_strData]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">[Now.ToString("dd-MM-yyyy")]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
-            <ui:AssignOperation.To>
-              <OutArgument x:TypeArguments="x:String">[var_strNomeArquivo]</OutArgument>
-            </ui:AssignOperation.To>
-            <ui:AssignOperation.Value>
-              <InArgument x:TypeArguments="x:String">["SANASA" + "_" + var_strCodConsumidor + "_" + var_strData + "_"]</InArgument>
-            </ui:AssignOperation.Value>
-          </ui:AssignOperation>
-        </scg:List>
-      </ui:MultipleAssign.AssignOperations>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:MultipleAssign>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,282" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431,51" sap2010:WorkflowViewState.IdRef="CommentOut_5">
       <ui:CommentOut.Body>
         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,204" sap2010:WorkflowViewState.IdRef="Sequence_24">
           <sap:WorkflowViewStateService.ViewState>
@@ -190,21 +163,15 @@
       </ui:CommentOut.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Acessar_Portal workflow" sap:VirtualizedContainerService.HintSize="436,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WFs\wf_Acessar_Portal.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Acessar_Portal workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WFs\wf_Acessar_Portal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">
           <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLinkPortal" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_in_strLogin">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_in_strCodConsumidor">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
         </InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrMes">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMesRef" />
@@ -215,21 +182,56 @@
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
           <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
         </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_instrCodConsumidor">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_instrLogin">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Download_Fatura workflow" sap:VirtualizedContainerService.HintSize="436,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="WFs\wf_Download_Fatura.xaml">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Informações para Salvar o Arquivo PDF" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[var_strData]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[Now.ToString("dd-MM-yyyy")]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[var_strCaminhoPasta]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">["H:\Concessionarias\2022\Agua\"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[var_strNomeArquivo]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[var_strCaminhoPasta + "SANASA" + "_" + var_strCodConsumidor + "_" + var_strData + "_" + var_strMesRef + var_strAnoRef + ".pdf"]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:MultipleAssign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Download_Fatura workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="WFs\wf_Download_Fatura.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_in_NomeArquivo">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeArquivo" />
-        </InArgument>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
           <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
         </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_instrMes">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strMesRef" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrAno">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strAnoRef" />
+        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeArquivo">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeArquivo" />
         </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
