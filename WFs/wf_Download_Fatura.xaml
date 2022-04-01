@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1498,5168</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1238,5169</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_download_Fatura_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -82,10 +82,9 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Entrada: arg_in_strCaminhoCompletoArquivo - Caminho completo do arquivo com diretório e nome para salvar no download.&#xA;                arg_in_strCaminhoPastaDownload - Caminho pasta do download para verificar o arquivo na atividade Checa Download.&#xA;                arg_in_strIndex - Índice da linha que está sendo percorrida da data table para usar no seletor e pegar linha correta no portal&#xA;&#xA;Processamento: Realiza download da fatura&#xA;&#xA;Saída: arg_out_boolErroDownload - Sai com um booleano indicando se houve erro no processo de download." DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5103" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Entrada: arg_in_strCaminhoCompletoArquivo - Caminho completo do arquivo com diretório e nome para salvar no download.&#xA;                arg_in_strCaminhoPastaDownload - Caminho pasta do download para verificar o arquivo na atividade Checa Download.&#xA;                arg_in_strIndex - Índice da linha que está sendo percorrida da data table para usar no seletor e pegar linha correta no portal&#xA;&#xA;Processamento: Realiza download da fatura&#xA;&#xA;Saída: arg_out_boolErroDownload - Sai com um booleano indicando se houve erro no processo de download." DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5104" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,13 +138,13 @@
         </sap2010:ViewStateManager>
       </sap2010:WorkflowViewState.ViewStateManager>
     </Delay>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4570" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4571" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4424" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4425" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Variável booleana para verificar se o PDF do arquivo abriu" Name="var_boolAbriuFatura" />
               <Variable x:TypeArguments="x:Boolean" Name="var_boolTable" />
@@ -203,7 +202,7 @@
               </ui:Click.Target>
             </ui:Click>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="797,91" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Clicou em visualizar impressão&quot;]" />
-            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 10 seconds" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="797,22" sap2010:WorkflowViewState.IdRef="Delay_2">
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 10 seconds" Duration="00:00:15" sap:VirtualizedContainerService.HintSize="797,22" sap2010:WorkflowViewState.IdRef="Delay_2">
               <TextExpression.Namespaces>
                 <sco:Collection x:TypeArguments="x:String">
                   <x:String>System.Activities</x:String>
@@ -279,11 +278,11 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Error" Message="[&quot;Fatura PDF não abriu&quot;]" />
-                  <Throw Exception="[new BusinessRuleException(&quot;Fatura não liberada para download&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                  <Throw Exception="[new Exception(&quot;Fatura não liberada para download&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
                 </Sequence>
               </If.Else>
             </If>
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Deixa a janela do pdf em primeiro plano " DisplayName="Attach Window 'chrome.exe 2a.via'" sap:VirtualizedContainerService.HintSize="797,554" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="3d26a30833ffe4afac76c967af48186f" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='2a.via de conta de água - Google Chrome' /&gt;">
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Deixa a janela do pdf em primeiro plano " DisplayName="Attach Window 'chrome.exe 2a.via'" sap:VirtualizedContainerService.HintSize="797,554" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="4b26da27a1181ccb217ff2727dd9c217" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='2a.via de conta de água - Google Chrome' /&gt;">
               <ui:WindowScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -307,7 +306,7 @@
                         </ui:CursorPosition>
                       </ui:ClickImage.CursorPosition>
                       <ui:ClickImage.Image>
-                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE4AAAAfCAYAAABJePtPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD3SURBVGhD7ZBBCgIxDEV7Dpcew2u5EDyAF3HvNbzKgDsXbitZBEpIG+fPOJ3C//AgyZ8ivnR/fjKZT7o+3vl0e+XjZcqHM4kQT+IreSWJoTgQigOhOBCKA6E4EIoDoTgQigMZSpzEu0eg71osFqfxurVBfwd912IocXtidXFe7D361uv0Fr0tU35be6f3ufxF3K99OXudpNXbTuL1dpbojrKJuNpezrpL7Fz23hztdpbojkJxIBQHsjtx5Sxp9bXO7naW6I7SXZyN7XTXmzdHu50luqMsFreENf5ALygOhOJAuoobGYoDoTgQigOhOBCKA6E4iCl/Aa1vWHQR7jcWAAAAAElFTkSuQmCC" />
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFIAAAAhCAYAAABKmvz0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAImSURBVGhD7Zq/T8JAFMf5Oxz9K4z/hpt/gbsDxMFJ/Qfc2AgT0RgGEhzEhIGYEMICkaEMhjBYCZE2QCk/+vXueg0lXkxtj4j6mnxSXt9rr++TyzUhlxrPPDw8z5B/mhIJSN23fYlndzYOrwbYT79i75SIAnfFnXF3KS4xc2srC4noCJEHlwNlkoiOELmfMZVJIjpCpCpBfA8SqQkSqQkSqQkSqQkSqYnfJ/LCRrk/R7n4ps5/RXaCmukil1XkEqJNZMEEOxYoKHJayTvgQ5mtd3X+K6pzOPDQripyCfl9IneU7YisL9hvDz1zyWaAf4xeJsh2QnF/gmNeW3QxYrVGf/E5Fzx3uoRh8bOLc1HParr8/wEbtSkLrAUMfubHfIlydYJ2KH4MlgHxXoBRD8ZlM9v0xxXX5Jhx2KJI1qzp4Lo0xuPQE7FjsfXpxkahv2KRh0aF1cqGeK5QCnKswc4o9Fz2rKGLWmuME5VIJqtRt3FZn4scsILRtJGuzNDj4dDBUei9wiL5vUaXj+33EZctilyhVpT5cAM8lk2EG1rPCClHNu/PSDYTRW5dvyHSDHqQcah+436FyF4zxkdLwQ6KfENxyC7I5rctcj1uMv79jPxzIv3100KuuxS1G2skiZT5CCJHluKLHjz3P4mMjeaGfgoSqQkSqYmfF/lHIJGaIJGaIJGaIJGaECJpg0ByhEjaspIcIZI2USUnVem4tK0vJuttfTY+AMmDqqHsdlALAAAAAElFTkSuQmCC" />
                       </ui:ClickImage.Image>
                       <ui:ClickImage.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="e435132a-2721-452d-bb63-6fded738c4fd">
@@ -484,7 +483,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Error" Message="[&quot;Janela para download não identificado&quot;]" />
-                  <Throw Exception="[new BusinessRuleException(&quot;Janela para download não identificado&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                  <Throw Exception="[new Exception(&quot;Janela para download não identificado&quot;)]" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="Throw_2" />
                 </Sequence>
               </If.Else>
             </If>
@@ -534,20 +533,20 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <Sequence sap:VirtualizedContainerService.HintSize="797,1342" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence sap:VirtualizedContainerService.HintSize="797,1343" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1250" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1251" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1034" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1035" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
