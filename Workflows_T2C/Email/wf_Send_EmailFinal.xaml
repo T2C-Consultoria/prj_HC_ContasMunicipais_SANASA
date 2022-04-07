@@ -9,10 +9,10 @@
     <x:Property sap2010:Annotation.AnnotationText="Hora do final da execução" Name="arg_inDatHoraFinal" Type="InArgument(s:DateTime)" />
     <x:Property sap2010:Annotation.AnnotationText="Hora do inicio da execução" Name="arg_inDatHoraInicio" Type="InArgument(s:DateTime)" />
     <x:Property sap2010:Annotation.AnnotationText="Corpo do Email" Name="arg_inStrCorpoEmail" Type="InArgument(x:String)" />
-    <x:Property Name="arg_inStrEmailRemetente" Type="InArgument(x:String)" />
-    <x:Property Name="arg_inStrOrchFolder" Type="InArgument(x:String)" />
-    <x:Property Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="arg_inIEPlanilhaAnalitico" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Email remetente salvo em um asset no orch" Name="arg_inStrEmailRemetente" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Nome da pasta do Orch que está no arquivo Config" Name="arg_inStrOrchFolder" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Caminho da Planilha preenchida e com o nome atualizado" Name="arg_inIEPlanilhaAnalitico" Type="InArgument(x:String)" />
   </x:Members>
   <this:sq_EmailRelatorioErro.arg_inStrDestinatario>
     <InArgument x:TypeArguments="x:String" />
@@ -38,7 +38,7 @@
   <this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
     <InArgument x:TypeArguments="x:String" />
   </this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
-  <sap:VirtualizedContainerService.HintSize>1238,1124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063,1124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">

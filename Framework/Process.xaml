@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1498,1227</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063,1318</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,7 +84,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="473,1162" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="473,1253" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strCodConsumidor" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="CNPJ necessário para realizar o login, Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strLogin" />
@@ -168,10 +168,46 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Acessar_Portal workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WFs\wf_Acessar_Portal.xaml">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="431,51" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_25">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Acessar_Portal workflow" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" UnSafe="False" WorkflowFileName="WFs\wf_Acessar_Portal.xaml">
+            <ui:InvokeWorkflowFile.Arguments>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">[var_strLinkPortal]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrMes">[var_strMesRef]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrAno">[var_strAnoRef]</OutArgument>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[arg_inDicConfig]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_instrCodConsumidor">[var_strCodConsumidor]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_instrLogin">[var_strLogin]</InArgument>
+            </ui:InvokeWorkflowFile.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeWorkflowFile>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Login_SANASA workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="WFs\wf_Login_SANASA.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_in_strUrlPortal">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLinkPortal" />
+        <InOutArgument x:TypeArguments="x:String" x:Key="arg_instrCodConsumidor">
+          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
+        </InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_instrLogin">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
         </InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrMes">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMesRef" />
@@ -179,15 +215,6 @@
         <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrAno">
           <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strAnoRef" />
         </OutArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_instrCodConsumidor">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_instrLogin">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
-        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:MultipleAssign sap2010:Annotation.AnnotationText="Informações para Salvar o Arquivo PDF" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
@@ -227,12 +254,8 @@
     </ui:MultipleAssign>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Download_Fatura workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="WFs\wf_Download_Fatura.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
-          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeArquivo">
-          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strNomeArquivo" />
-        </InArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[arg_inDicConfig]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrNomeArquivo">[var_strNomeArquivo]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">

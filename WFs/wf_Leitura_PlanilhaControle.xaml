@@ -1,14 +1,12 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="wf_Leitura_PlanilhaControle" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="arg_in_strCaminhoPlanilha" Type="InArgument(x:String)" />
-    <x:Property Name="arg_out_dtDadosPlanilha" Type="OutArgument(sd:DataTable)" />
-    <x:Property Name="arg_outdtDadosSANASAHVC" Type="OutArgument(sd:DataTable)" />
-    <x:Property Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Saída - DataTable com as informações da planilha armazenadas" Name="arg_outdtDadosSANASAHVC" Type="OutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1238,901</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063,901</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_Leitura_PlanilhaControle_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="28">
@@ -74,7 +72,7 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="wf_Leitura_PlanilhaControle" sap:VirtualizedContainerService.HintSize="476,836" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="var_strCaminhoPlanilhaFaturas" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Caminho da planilha, informação que está armazenada em um asset no Orch, vindo através do arquivo Config" Name="var_strCaminhoPlanilhaFaturas" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -121,40 +119,40 @@
     </ui:ExcelApplicationScope>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,51" sap2010:WorkflowViewState.IdRef="CommentOut_8">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="520,1946" sap2010:WorkflowViewState.IdRef="Sequence_17">
+        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="520,1970" sap2010:WorkflowViewState.IdRef="Sequence_17">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Juntar as data tables" sap:VirtualizedContainerService.HintSize="478,1854" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Juntar as data tables" sap:VirtualizedContainerService.HintSize="478,1846" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - DMAE" sap:VirtualizedContainerService.HintSize="436,165" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[var_dtDadosDMAE]">
+            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - DMAE" sap:VirtualizedContainerService.HintSize="436,163" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[var_dtDadosDMAE]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MergeDataTable>
-            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - SAMAE" sap:VirtualizedContainerService.HintSize="436,165" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[var_dtDadosSAMAE]">
+            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - SAMAE" sap:VirtualizedContainerService.HintSize="436,163" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[var_dtDadosSAMAE]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MergeDataTable>
-            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - PREFEITURAS" sap:VirtualizedContainerService.HintSize="436,165" sap2010:WorkflowViewState.IdRef="MergeDataTable_6" MissingSchemaAction="Add" Source="[var_dtDadosPREFEITURAS]">
+            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - PREFEITURAS" sap:VirtualizedContainerService.HintSize="436,163" sap2010:WorkflowViewState.IdRef="MergeDataTable_6" MissingSchemaAction="Add" Source="[var_dtDadosPREFEITURAS]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:MergeDataTable>
-            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - DAEB" sap:VirtualizedContainerService.HintSize="436,165" sap2010:WorkflowViewState.IdRef="MergeDataTable_3" MissingSchemaAction="Add" Source="[var_dtDadosDAEB]">
+            <ui:MergeDataTable sap2010:Annotation.AnnotationText="Junta as tabelas" Destination="[arg_out_dtDadosPlanilha]" DisplayName="Merge Data Table - DAEB" sap:VirtualizedContainerService.HintSize="436,163" sap2010:WorkflowViewState.IdRef="MergeDataTable_3" MissingSchemaAction="Add" Source="[var_dtDadosDAEB]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>

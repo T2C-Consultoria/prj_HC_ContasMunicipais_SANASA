@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1238,5169</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1063,5187</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_download_Fatura_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -82,9 +82,10 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Entrada: arg_in_strCaminhoCompletoArquivo - Caminho completo do arquivo com diretório e nome para salvar no download.&#xA;                arg_in_strCaminhoPastaDownload - Caminho pasta do download para verificar o arquivo na atividade Checa Download.&#xA;                arg_in_strIndex - Índice da linha que está sendo percorrida da data table para usar no seletor e pegar linha correta no portal&#xA;&#xA;Processamento: Realiza download da fatura&#xA;&#xA;Saída: arg_out_boolErroDownload - Sai com um booleano indicando se houve erro no processo de download." DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5104" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Processamento: Realiza download da fatura" DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5122" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -138,16 +139,15 @@
         </sap2010:ViewStateManager>
       </sap2010:WorkflowViewState.ViewStateManager>
     </Delay>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4571" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Atividade para utilizar o Browser que já está aberto" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4675" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4425" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4498" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Variável booleana para verificar se o PDF do arquivo abriu" Name="var_boolAbriuFatura" />
-              <Variable x:TypeArguments="x:Boolean" Name="var_boolTable" />
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Verifica se existe a janela do windows para poder digitar o caminho e nome do arquivo " Name="var_boolExisteSalvar" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
@@ -248,7 +248,7 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <ui:UiElementExists DisplayName="Element Exists - Abriu fatura " Exists="[var_boolAbriuFatura]" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
+            <ui:UiElementExists sap2010:Annotation.AnnotationText="Verifica se abriu o PDF da fatura" DisplayName="Element Exists - Abriu fatura " Exists="[var_boolAbriuFatura]" sap:VirtualizedContainerService.HintSize="797,137" sap2010:WorkflowViewState.IdRef="UiElementExists_2">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="6e0ed741-c6d1-43ae-83f5-1eae92f77f0f" InformativeScreenshot="dbad0bdefa32f4f4d51a30783bdce144" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='2a.via de conta de água - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' title='Chrome Legacy Window' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -259,12 +259,18 @@
                   </ui:Target.WaitForReady>
                 </ui:Target>
               </ui:UiElementExists.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[var_boolAbriuFatura]" sap:VirtualizedContainerService.HintSize="797,402" sap2010:WorkflowViewState.IdRef="If_2">
+            <If sap2010:Annotation.AnnotationText="Se abrir a fatura então passa pelo Then e continua com as atividades, se não, Throw Exception e adiciona para o final da fila para tentar novamente" Condition="[var_boolAbriuFatura]" sap:VirtualizedContainerService.HintSize="797,444" sap2010:WorkflowViewState.IdRef="If_2">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
@@ -282,7 +288,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Deixa a janela do pdf em primeiro plano " DisplayName="Attach Window 'chrome.exe 2a.via'" sap:VirtualizedContainerService.HintSize="797,554" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="4b26da27a1181ccb217ff2727dd9c217" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='2a.via de conta de água - Google Chrome' /&gt;">
+            <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" sap2010:Annotation.AnnotationText="Deixa a janela do pdf em primeiro plano " DisplayName="Attach Window - Deixa a janela do PDF da fatura em primeiro plano" sap:VirtualizedContainerService.HintSize="797,554" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="4b26da27a1181ccb217ff2727dd9c217" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='2a.via de conta de água - Google Chrome' /&gt;">
               <ui:WindowScope.Body>
                 <ActivityAction x:TypeArguments="x:Object">
                   <ActivityAction.Argument>
@@ -294,7 +300,7 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'chrome.exe 2a.via'" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image - Clica no botão Imprimir" sap:VirtualizedContainerService.HintSize="334,154" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT">
                       <ui:ClickImage.CursorPosition>
                         <ui:CursorPosition Position="Center">
                           <ui:CursorPosition.OffsetX>
@@ -404,7 +410,7 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <ui:UiElementExists DisplayName="Element Exists 'dialog  Salvar como'" Exists="[var_boolExisteSalvar]" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
+            <ui:UiElementExists DisplayName="Element Exists - Verifica se existe Salvar como'" Exists="[var_boolExisteSalvar]" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
               <ui:UiElementExists.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5ac2a900-dcf8-4c05-a74c-893c640e5053" InformativeScreenshot="09947494869f751e2d05b36bc33e5f07" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar Saída de Impressão como' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -533,7 +539,7 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <Sequence sap:VirtualizedContainerService.HintSize="797,1343" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="Sequence - Voltar para o Inicio do Login" sap:VirtualizedContainerService.HintSize="797,1343" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -603,6 +609,7 @@
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
