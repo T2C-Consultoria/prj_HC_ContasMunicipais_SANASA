@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="sq_EmailRelatorioErro" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="sq_EmailRelatorioErro" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ss="clr-namespace:System.Security;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Array com todos os caminhos das screenshots tiradas durante o processo." Name="arg_inArrScreenshotFiles" Type="InArgument(s:String[])" />
     <x:Property sap2010:Annotation.AnnotationText="Destinatário que deve receber o e-mail" Name="arg_inStrDestinatario" Type="InArgument(x:String)" />
@@ -38,7 +38,7 @@
   <this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
     <InArgument x:TypeArguments="x:String" />
   </this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
-  <sap:VirtualizedContainerService.HintSize>1500,1124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1238,1124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -146,12 +146,10 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[arg_inArrScreenshotFiles]" Body="[String.Format(arg_inStrCorpoEmail, arg_inStrNomeProjeto, arg_inDatHoraInicio.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;), arg_inDatHoraFinal.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;))]" DisplayName="Send Email Final" Email="[arg_inStrUsername]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_5" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[arg_inSecSecurePassword]" Server="smtp.office365.com" Subject="[arg_inStrAssuntoEmail]" To="[arg_inStrDestinatario]">
+            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[arg_inArrScreenshotFiles]" Body="[String.Format(arg_inStrCorpoEmail, arg_inStrNomeProjeto, arg_inDatHoraInicio.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;), arg_inDatHoraFinal.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;))]" DisplayName="Send Email Final" Email="[arg_inStrUsername]" EnableSSL="True" From="[arg_inStrUsername]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_5" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[arg_inSecSecurePassword]" Server="smtp.office365.com" Subject="[arg_inStrAssuntoEmail]" To="[arg_inStrDestinatario]">
               <ui:SendMail.Files>
                 <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                  <InArgument x:TypeArguments="x:String">
-                    <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="arg_inIEPlanilhaAnalitico" />
-                  </InArgument>
+                  <InArgument x:TypeArguments="x:String">[arg_inIEPlanilhaAnalitico]</InArgument>
                 </scg:List>
               </ui:SendMail.Files>
               <sap:WorkflowViewStateService.ViewState>
