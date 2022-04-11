@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1238,5122</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1251,5683</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_download_Fatura_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -84,15 +84,15 @@
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Processamento: Realiza download da fatura" DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5057" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Processamento: Realiza download da fatura" DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="1261,5618" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="873,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando wf de Download da Fatura&quot;]" />
-    <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="873,22" sap2010:WorkflowViewState.IdRef="Delay_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1219,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando wf de Download da Fatura&quot;]" />
+    <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1219,22" sap2010:WorkflowViewState.IdRef="Delay_1">
       <TextExpression.Namespaces>
         <sco:Collection x:TypeArguments="x:String">
           <x:String>System.Activities</x:String>
@@ -138,13 +138,13 @@
         </sap2010:ViewStateManager>
       </sap2010:WorkflowViewState.ViewStateManager>
     </Delay>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Atividade para utilizar o Browser que já está aberto" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4610" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Atividade para utilizar o Browser que já está aberto" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="1219,5171" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4433" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1185,4994" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Variável booleana para verificar se o PDF do arquivo abriu" Name="var_boolAbriuFatura" />
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Verifica se existe a janela do windows para poder digitar o caminho e nome do arquivo " Name="var_boolExisteSalvar" />
@@ -155,7 +155,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Acessar fatura" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Acessar fatura" sap:VirtualizedContainerService.HintSize="1143,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -177,7 +177,7 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="797,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Clicou em continuar&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1143,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Clicou em continuar&quot;]" />
             <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Acessar fatura" sap:VirtualizedContainerService.HintSize="797,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
@@ -427,7 +427,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </ui:UiElementExists>
-            <If Condition="[var_boolExisteSalvar]" sap:VirtualizedContainerService.HintSize="797,791" sap2010:WorkflowViewState.IdRef="If_3">
+            <If Condition="[var_boolExisteSalvar]" sap:VirtualizedContainerService.HintSize="1143,1392" sap2010:WorkflowViewState.IdRef="If_3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -435,14 +435,14 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="376,634" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                <Sequence sap:VirtualizedContainerService.HintSize="722,1235" sap2010:WorkflowViewState.IdRef="Sequence_14">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Janela para download identificado&quot;]" />
-                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[arg_inStrNomeArquivo]">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,91" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Janela para download identificado&quot;]" />
+                  <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Type Into 'Edit'" sap:VirtualizedContainerService.HintSize="680,134" sap2010:WorkflowViewState.IdRef="TypeInto_2" Text="[arg_inStrNomeArquivo]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4f718366-41e5-4ce1-84dc-9eb2a90bf23c" InformativeScreenshot="48163dbe84984f2d0db171bd278d0c21" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar Saída de Impressão como' /&gt;&lt;wnd aaname='Painel do Explorer' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Nome:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' aaname='Nome:' /&gt;">
                         <ui:Target.TimeoutMS>
@@ -454,7 +454,7 @@
                       </ui:Target>
                     </ui:TypeInto.Target>
                   </ui:TypeInto>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="680,106" sap2010:WorkflowViewState.IdRef="Click_9" KeyModifiers="None" MouseButton="BTN_LEFT">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -476,7 +476,85 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Fatura feito download&quot;]" />
+                  <uix:NCheckState Exists="{x:Null}" DisplayName="Check App State 'Confirmar Salvar como'" sap:VirtualizedContainerService.HintSize="680,561" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V1">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="376,345" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_10" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50fbf658-c3d7-45f3-87a0-4dce2fbf132d" InformativeScreenshot="c810b87591a36342144ba2c01ecfa9e6" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Confirmar Salvar como' /&gt;&lt;wnd aaname='Confirmar Salvar como' cls='DirectUIHWND' /&gt;&lt;wnd aaname='Não' cls='Button' title='&amp;amp;Não' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_11" KeyModifiers="None" MouseButton="BTN_LEFT">
+                          <ui:Click.CursorPosition>
+                            <ui:CursorPosition Position="Center">
+                              <ui:CursorPosition.OffsetX>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetX>
+                              <ui:CursorPosition.OffsetY>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:CursorPosition.OffsetY>
+                            </ui:CursorPosition>
+                          </ui:Click.CursorPosition>
+                          <ui:Click.Target>
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="50fbf658-c3d7-45f3-87a0-4dce2fbf132d" InformativeScreenshot="24bb96cd0f02366c1758f20c927a86bd" Selector="&lt;wnd app='chrome.exe' cls='#32770' title='Salvar Saída de Impressão como' /&gt;&lt;wnd ctrlid='2' title='Cancelar' aaname='Cancelar' /&gt;">
+                              <ui:Target.TimeoutMS>
+                                <InArgument x:TypeArguments="x:Int32" />
+                              </ui:Target.TimeoutMS>
+                              <ui:Target.WaitForReady>
+                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                              </ui:Target.WaitForReady>
+                            </ui:Target>
+                          </ui:Click.Target>
+                        </ui:Click>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="250,84" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="0, 0, 366, 130" FriendlyName="'Confirmar Salvar como'" Guid="040708d8-e7a4-4fb0-9ca2-d67a2ed13f3e" ImageBase64="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" InformativeScreenshot="96babbe53e6e5da128de84f0a1019018.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='Confirmar Salvar como' /&gt;" SearchSteps="Selector, FuzzySelector">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="13, 36, 32, 32" ElementType="Icon" FriendlyName="'MainInstructionIcon'" FullSelectorArgument="&lt;wnd aaname='Confirmar Salvar como' cls='DirectUIHWND' /&gt;&lt;ctrl name='Confirmar Salvar como' role='pane' /&gt;&lt;ctrl name='MainInstructionIcon' role='graphic' /&gt;" FuzzySelectorArgument="&lt;wnd aaname='Confirmar Salvar como' cls='DirectUIHWND' /&gt;&lt;ctrl name='Confirmar Salvar como' role='pane' /&gt;&lt;ctrl name='MainInstructionIcon' role='graphic' automationid='' check:text='MainInstructionIcon' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAYAAADhAJiYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFDSURBVFhH3dJLCsIwFIXhLMWduw7BiQtwKA5FcBnVeK9p6Cv3mVSLgTOwgv35TIgbO38a9NinNThtgk67tAanPghljvAzuAZK9UEg8zqHz1oo1QX1Ot0trYVSXVCv093TWij5g8Y6fVALJX/QTCevVskXVNLJq1TyBRE6eTVK9iBOJ69CyR4k6OR5lWxBhE4IaeNnXiVbEKFTDIJ5lPRBzN2hgjxK+iDm7pBBMKuSLojRwXFBViVdEKODY4NgFiU5SNDBSUEWJTlI0MGJQTCtEh+k0MFpgrRKfJBCB6cKgmmU6CClDk4bpFGig5Q6OHUQTFIqBxl0zBOUykEGHc84pWWQQ8fyl33GKC2DHDrmIBilNA1a8+7MRyhNg1a+O/OVlIYgLD2E+LzArl8avAvfOVYagrAUv/zFRkrwaVtnY0ExvgE0JZ4QRhV4zAAAAABJRU5ErkJggg==" SearchSteps="Selector, FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                        <uix:TargetAnchorable.FuzzySelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <Literal x:TypeArguments="x:String" Value="" />
+                          </InArgument>
+                        </uix:TargetAnchorable.FuzzySelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                  </uix:NCheckState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="680,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Fatura feito download&quot;]" />
                 </Sequence>
               </If.Then>
               <If.Else>
@@ -492,7 +570,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="797,22" sap2010:WorkflowViewState.IdRef="Delay_3">
+            <Delay mva:VisualBasic.Settings="{x:Null}" DisplayName="Delay 3 seconds" Duration="00:00:03" sap:VirtualizedContainerService.HintSize="1143,22" sap2010:WorkflowViewState.IdRef="Delay_3">
               <TextExpression.Namespaces>
                 <sco:Collection x:TypeArguments="x:String">
                   <x:String>System.Activities</x:String>
@@ -538,14 +616,14 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <Sequence DisplayName="Sequence - Voltar para o Inicio do Login" sap:VirtualizedContainerService.HintSize="797,1278" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="Sequence - Voltar para o Inicio do Login" sap:VirtualizedContainerService.HintSize="1143,1238" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1186" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1146" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
@@ -629,6 +707,6 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BrowserScope>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="873,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Download realizado&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1219,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Download realizado&quot;]" />
   </Sequence>
 </Activity>
