@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1063,5187</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1238,5122</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>wf_download_Fatura_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -82,10 +82,9 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Processamento: Realiza download da fatura" DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5122" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Processamento: Realiza download da fatura" DisplayName="wf_Download_Fatura" sap:VirtualizedContainerService.HintSize="915,5057" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -139,13 +138,13 @@
         </sap2010:ViewStateManager>
       </sap2010:WorkflowViewState.ViewStateManager>
     </Delay>
-    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Atividade para utilizar o Browser que já está aberto" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4675" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" sap2010:Annotation.AnnotationText="Atividade para utilizar o Browser que já está aberto" BrowserType="Chrome" DisplayName="Attach Browser - 2º via da Conta" sap:VirtualizedContainerService.HintSize="873,4610" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="a7342defaf216a9c5648accb9ce820d2" Selector="&lt;html app='chrome.exe' title='Relação de Débitos' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4498" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="839,4433" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Variável booleana para verificar se o PDF do arquivo abriu" Name="var_boolAbriuFatura" />
               <Variable x:TypeArguments="x:Boolean" sap2010:Annotation.AnnotationText="Verifica se existe a janela do windows para poder digitar o caminho e nome do arquivo " Name="var_boolExisteSalvar" />
@@ -539,20 +538,20 @@
                 </sap2010:ViewStateManager>
               </sap2010:WorkflowViewState.ViewStateManager>
             </Delay>
-            <Sequence DisplayName="Sequence - Voltar para o Inicio do Login" sap:VirtualizedContainerService.HintSize="797,1343" sap2010:WorkflowViewState.IdRef="Sequence_15">
+            <Sequence DisplayName="Sequence - Voltar para o Inicio do Login" sap:VirtualizedContainerService.HintSize="797,1278" sap2010:WorkflowViewState.IdRef="Sequence_15">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1251" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
+              <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Relação de Débitos" sap:VirtualizedContainerService.HintSize="434,1186" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
                 <uix:NApplicationCard.Body>
                   <ActivityAction x:TypeArguments="x:Object">
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                     </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,1035" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,930" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -582,17 +581,34 @@
                         </uix:NClick.Target>
                       </uix:NClick>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Clicou em voltar&quot;]" />
-                      <uix:NClick ClickType="Single" DisplayName="Click 'Fechar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
-                        <uix:NClick.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="1882, 8, 46, 29" ElementType="Button" FriendlyName="'Fechar'" FullSelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Fechar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Fechar' role='push button' automationid='' check:text='Fechar' /&gt;" Guid="bd043356-829c-42bf-8bcf-2847d6b59839" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAhCAYAAACbffiEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACgSURBVFhH7c/BCcMwEETR7SPuv4KQQ4oJ+OI2FAYi8GGRLaEx4zALHxtWh33hUZty8/kxIj7rVu6aIWoZopYhahlypseylOfrne4QdniT7XqjQuqhGaa1G4kKQdnBsxGIDkH7wxkIdAkEVQADgQzpqSLw3f9nb0ejQ7LDGRgqpHXwbAwVcnRoxWS73qiQKzNELUPUMkQtQ9QyRK0/hER8AaBJBsT/657pAAAAAElFTkSuQmCC" InformativeScreenshot="2b7d87abbec63486a09aa148ed95c559.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' /&gt;" SearchSteps="Selector, Image">
-                            <uix:TargetAnchorable.Anchors>
-                              <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                <uix:Target DesignTimeRectangle="1836, 8, 46, 29" ElementType="Button" FriendlyName="'Restaurar'" FullSelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Restaurar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Restaurar' role='push button' automationid='' check:text='Restaurar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAhCAYAAACbffiEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB8SURBVFhH7dVBCoAwDETR3v+QgpteI9JFQWSsQho6xgm8TTWLXxcWDdtYkinbXi0DhbBRCBuFsFHIk/avHUE7HqEh6Lz5RMj51pH+znXPKyQEnTcKeUEhd34T0qHnHku+SISQkBG0M8P0kFUUwkYhbBTCRiFsFMImSUi1A1n9pmMrNg64AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
-                              </scg:List>
-                            </uix:TargetAnchorable.Anchors>
-                          </uix:TargetAnchorable>
-                        </uix:NClick.Target>
-                      </uix:NClick>
+                      <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                        <ui:CommentOut.Body>
+                          <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="376,248" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ClickType="Single" DisplayName="Click 'Fechar'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="1617fa7c-80d6-48aa-bdc2-e6fa95f98fb8" Version="V1">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable DesignTimeRectangle="1882, 8, 46, 29" ElementType="Button" FriendlyName="'Fechar'" FullSelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Fechar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Fechar' role='push button' automationid='' check:text='Fechar' /&gt;" Guid="bd043356-829c-42bf-8bcf-2847d6b59839" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAhCAYAAACbffiEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACgSURBVFhH7c/BCcMwEETR7SPuv4KQQ4oJ+OI2FAYi8GGRLaEx4zALHxtWh33hUZty8/kxIj7rVu6aIWoZopYhahlypseylOfrne4QdniT7XqjQuqhGaa1G4kKQdnBsxGIDkH7wxkIdAkEVQADgQzpqSLw3f9nb0ejQ7LDGRgqpHXwbAwVcnRoxWS73qiQKzNELUPUMkQtQ9QyRK0/hER8AaBJBsT/657pAAAAAElFTkSuQmCC" InformativeScreenshot="2b7d87abbec63486a09aa148ed95c559.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' /&gt;" SearchSteps="Selector, Image">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="1836, 8, 46, 29" ElementType="Button" FriendlyName="'Restaurar'" FullSelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Restaurar' role='push button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='SANASA - Sociedade de Abastecimento de Água e Saneamento S/A - G*' role='pane' /&gt;&lt;ctrl name='Google Chrome' role='pane' /&gt;&lt;ctrl name='Restaurar' role='push button' automationid='' check:text='Restaurar' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADIAAAAhCAYAAACbffiEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB8SURBVFhH7dVBCoAwDETR3v+QgpteI9JFQWSsQho6xgm8TTWLXxcWDdtYkinbXi0DhbBRCBuFsFHIk/avHUE7HqEh6Lz5RMj51pH+znXPKyQEnTcKeUEhd34T0qHnHku+SISQkBG0M8P0kFUUwkYhbBTCRiFsFMImSUi1A1n9pmMrNg64AAAAAElFTkSuQmCC" SearchSteps="Selector, FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NClick.Target>
+                            </uix:NClick>
+                          </Sequence>
+                        </ui:CommentOut.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:CommentOut>
                       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Fechou o navegador&quot;]" />
                     </Sequence>
                   </ActivityAction>

@@ -88,7 +88,7 @@
         <InArgument x:TypeArguments="x:String">[arg_inDicConfig("CaminhoPlanilhaFaturas").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="Leitura Planilha Controle" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,291" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="C:\Users\rpa.campinas\Documents\PLANILHA GERAL- ATRASOS AMBULATORIO SET À NOV 2020 (2).xlsx">
+    <ui:ExcelApplicationScope Password="{x:Null}" sap2010:Annotation.AnnotationText="Leitura Planilha Controle" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,291" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[var_strCaminhoPlanilhaFaturas]">
       <ui:ExcelApplicationScope.Body>
         <ActivityAction x:TypeArguments="ui:WorkbookApplication">
           <ActivityAction.Argument>
