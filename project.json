@@ -3,6 +3,7 @@
   "description": "Template ReFramework T2C",
   "main": "Main.xaml",
   "dependencies": {
+    "SQLiteDatabaseForUiPath": "[1.0.17]",
     "UiPath.Database.Activities": "[1.5.0]",
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.FTP.Activities": "[2.2.0]",
