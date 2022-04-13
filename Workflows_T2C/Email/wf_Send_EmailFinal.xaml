@@ -38,7 +38,7 @@
   <this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
     <InArgument x:TypeArguments="x:String" />
   </this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
-  <sap:VirtualizedContainerService.HintSize>1063,1124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1023,1124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -121,8 +121,8 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Faz o output da DataTable para um arquivo Excel e envia o e-mail com as informações dos erros" DisplayName="wf_Send_EmailFinal" sap:VirtualizedContainerService.HintSize="460,1059" sap2010:WorkflowViewState.IdRef="Sequence_70">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ss:SecureString" Name="var_secPassw" />
-      <Variable x:TypeArguments="x:String" Name="var_strEmailUser" />
+      <Variable x:TypeArguments="ss:SecureString" sap2010:Annotation.AnnotationText="Busca a senha do remetente informada no asset no Orch" Name="var_secPassw" />
+      <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Busca a senha do remetente informada no asset no Orch" Name="var_strEmailUser" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
