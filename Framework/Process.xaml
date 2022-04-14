@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1452,1906</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1452,2870</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="34">
@@ -81,9 +81,10 @@
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="894,1841" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="894,2805" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strCodConsumidor" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="CNPJ necessário para realizar o login, Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strLogin" />
@@ -96,6 +97,7 @@
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Pasta onde será salva o PDF da fatura" Name="var_strCaminhoPasta" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Query para realizar Select no BD" Name="var_strSelectBD" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="DataTable com o resultado do Select realizado no BD" Name="var_dtResultSelect" />
+      <Variable x:TypeArguments="x:String" Name="var_strNomePasta" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -147,6 +149,58 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
+    <Sequence DisplayName="Criando Pasta do Mes Atual" sap:VirtualizedContainerService.HintSize="852,924" sap2010:WorkflowViewState.IdRef="Sequence_30">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:Boolean" Name="var_strPastaExiste" />
+        <Variable x:TypeArguments="x:String" Name="var_strPastaMes" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="797,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[var_strPastaMes]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[now.ToString("MM-yyyy")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign sap:VirtualizedContainerService.HintSize="797,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[var_strNomePasta]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">["H:\Concessionarias\2022\Agua\" + var_strPastaMes + "\"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:FolderExistsX DisplayName="Folder Exists" Exists="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="797,132" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[var_strNomePasta]" />
+      <If Condition="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="797,460" sap2010:WorkflowViewState.IdRef="If_2">
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_28">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Pasta já criada anteriormente&quot;]" />
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="376,302" sap2010:WorkflowViewState.IdRef="Sequence_29">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Criando pasta&quot;]" />
+            <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[var_strNomePasta]" />
+          </Sequence>
+        </If.Else>
+      </If>
+    </Sequence>
     <Assign DisplayName="Assign - Select no BD" sap:VirtualizedContainerService.HintSize="852,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[var_strSelectBD]</OutArgument>
@@ -206,7 +260,7 @@
                     <OutArgument x:TypeArguments="x:String">[var_strCaminhoPasta]</OutArgument>
                   </ui:AssignOperation.To>
                   <ui:AssignOperation.Value>
-                    <InArgument x:TypeArguments="x:String">["H:\Concessionarias\2022\Agua\"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">["H:\Concessionarias\2022\Agua\" + var_strNomePasta + "\"]</InArgument>
                   </ui:AssignOperation.Value>
                 </ui:AssignOperation>
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
