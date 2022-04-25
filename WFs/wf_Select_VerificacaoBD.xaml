@@ -2,12 +2,12 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Estrutura de dicionário para armazenar dados de configuração do processo (configurações, constantes e ativos)." Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property sap2010:Annotation.AnnotationText="Query para realizar o Select no BD" Name="arg_inStrSelectBD" Type="InArgument(x:String)" />
-    <x:Property sap2010:Annotation.AnnotationText="DataTable com o resultado do Select realizado no BD" Name="arg_outResultSelect" Type="OutArgument(sd:DataTable)" />
+    <x:Property sap2010:Annotation.AnnotationText="DataTable com o resultado do Select realizado no BD" Name="arg_outDtResultSelect" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <this:wf_Select_VerificacaoBD.arg_inDicConfig>
     <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" />
   </this:wf_Select_VerificacaoBD.arg_inDicConfig>
-  <sap:VirtualizedContainerService.HintSize>1452,893</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1216,924</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -80,7 +80,7 @@
       <AssemblyReference>System.Data.Entity</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Select/Verificação no BD" sap:VirtualizedContainerService.HintSize="476,828" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence sap2010:Annotation.AnnotationText="Realiza o Select no BD com as faturas que foram baixadas" DisplayName="Select/Verificação no BD" sap:VirtualizedContainerService.HintSize="476,859" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="sds:SQLiteConnection" sap2010:Annotation.AnnotationText="Variável de conexão ao BD" Name="var_dbConect" />
     </Sequence.Variables>
@@ -88,9 +88,10 @@
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Iniciando Select/Verificação no Banco&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Select ao Banco" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Iniciando Select/Verificação no Banco&quot;]" />
     <s:CreateConnection DatabaseFullPath="[arg_inDicConfig(&quot;PathSQLITE&quot;).ToString]" DisplayName="Create connection" sap:VirtualizedContainerService.HintSize="434,132" sap2010:WorkflowViewState.IdRef="CreateConnection_4" Output="[var_dbConect]" />
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="434,183" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <TryCatch.Try>
@@ -100,8 +101,8 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[arg_inStrSelectBD]" />
-          <s:ExecuteQuery DatabaseFullPath="{x:Null}" Connection="[var_dbConect]" DisplayName="Execute query" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" QueryResult="[arg_outResultSelect]" SQLCommand="[arg_inStrSelectBD]" />
+          <ui:LogMessage DisplayName="Log Message - Variável Select BD" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[arg_inStrSelectBD]" />
+          <s:ExecuteQuery DatabaseFullPath="{x:Null}" Connection="[var_dbConect]" DisplayName="Execute query" sap:VirtualizedContainerService.HintSize="334,238" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" QueryResult="[arg_outDtResultSelect]" SQLCommand="[arg_inStrSelectBD]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -116,7 +117,7 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s1:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Variável de select vazia&quot;]" />
+            <ui:LogMessage DisplayName="Log Message - Variável Select Vazia" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Variável de select vazia&quot;]" />
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>

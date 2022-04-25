@@ -3,7 +3,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Estrutura de dicionário para armazenar dados de configuração do processo (configurações, constantes e ativos)." Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property sap2010:Annotation.AnnotationText="Query para realizar o Insert dos dados ao BD" Name="arg_inStrInsertFaturas" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1023,1345</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1465,1376</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -77,10 +77,9 @@
       <AssemblyReference>System.Data.SQLite</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
       <AssemblyReference>SQLiteActivities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Inserindo dados ao BD" sap:VirtualizedContainerService.HintSize="480,1280" sap2010:WorkflowViewState.IdRef="Sequence_19">
+  <Sequence sap2010:Annotation.AnnotationText="Realiza o Insert no BD das faturas que foram baixadas" DisplayName="Inserindo dados ao BD" sap:VirtualizedContainerService.HintSize="480,1311" sap2010:WorkflowViewState.IdRef="Sequence_19">
     <Sequence.Variables>
       <Variable x:TypeArguments="sds:SQLiteConnection" sap2010:Annotation.AnnotationText="Variável de conexão ao BD" Name="var_dbConect" />
     </Sequence.Variables>
@@ -88,9 +87,10 @@
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Iniciando Inserção ao Banco&quot;]" />
+    <ui:LogMessage DisplayName="Log Message -  Inserção ao Banco" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Iniciando Inserção ao Banco&quot;]" />
     <s:CreateConnection DatabaseFullPath="[arg_inDicConfig(&quot;PathSQLITE&quot;).ToString]" DisplayName="Create connection" sap:VirtualizedContainerService.HintSize="438,132" sap2010:WorkflowViewState.IdRef="CreateConnection_2" Output="[var_dbConect]" />
     <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438,635" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <TryCatch.Try>
@@ -100,7 +100,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[arg_inStrInsertFaturas.ToString]" />
+          <ui:LogMessage DisplayName="Log Message - Variável Insert Banco " sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[arg_inStrInsertFaturas.ToString]" />
           <s:ExecuteNonQuery DatabaseFullPath="{x:Null}" Connection="[var_dbConect]" DisplayName="Execute non query" sap:VirtualizedContainerService.HintSize="334,185" sap2010:WorkflowViewState.IdRef="ExecuteNonQuery_3" SQLCommand="[arg_inStrInsertFaturas]" />
         </Sequence>
       </TryCatch.Try>
@@ -122,6 +122,6 @@
       </TryCatch.Catches>
     </TryCatch>
     <s:CloseConnection Connection="[var_dbConect]" DisplayName="Close connection" sap:VirtualizedContainerService.HintSize="438,79" sap2010:WorkflowViewState.IdRef="CloseConnection_2" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Inserção ao Banco finalizado&quot;]" />
+    <ui:LogMessage DisplayName="Log Message - Inserção finalizado" sap:VirtualizedContainerService.HintSize="438,91" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Inserção ao Banco finalizado&quot;]" />
   </Sequence>
 </Activity>

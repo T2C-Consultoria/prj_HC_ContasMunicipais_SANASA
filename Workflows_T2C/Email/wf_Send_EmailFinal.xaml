@@ -12,7 +12,7 @@
     <x:Property sap2010:Annotation.AnnotationText="Email remetente salvo em um asset no orch" Name="arg_inStrEmailRemetente" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Nome da pasta do Orch que está no arquivo Config" Name="arg_inStrOrchFolder" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="arg_inDicConfig" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property sap2010:Annotation.AnnotationText="Caminho da Planilha preenchida e com o nome atualizado" Name="arg_inIEPlanilhaAnalitico" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Caminho da Planilha preenchida e com o nome atualizado" Name="arg_inStrPlanilhaAnalitico" Type="InArgument(x:String)" />
   </x:Members>
   <this:sq_EmailRelatorioErro.arg_inStrDestinatario>
     <InArgument x:TypeArguments="x:String" />
@@ -38,7 +38,7 @@
   <this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
     <InArgument x:TypeArguments="x:String" />
   </this:sq_EmailRelatorioErro.arg_inStrCorpoEmail>
-  <sap:VirtualizedContainerService.HintSize>1023,1124</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1216,941</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -119,7 +119,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Faz o output da DataTable para um arquivo Excel e envia o e-mail com as informações dos erros" DisplayName="wf_Send_EmailFinal" sap:VirtualizedContainerService.HintSize="460,1059" sap2010:WorkflowViewState.IdRef="Sequence_70">
+  <Sequence sap2010:Annotation.AnnotationText="Faz o output da DataTable para um arquivo Excel e envia o e-mail com as informações dos erros" DisplayName="wf_Send_EmailFinal" sap:VirtualizedContainerService.HintSize="418,876" sap2010:WorkflowViewState.IdRef="Sequence_70">
     <Sequence.Variables>
       <Variable x:TypeArguments="ss:SecureString" sap2010:Annotation.AnnotationText="Busca a senha do remetente informada no asset no Orch" Name="var_secPassw" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Busca a senha do remetente informada no asset no Orch" Name="var_strEmailUser" />
@@ -130,86 +130,36 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="418,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">wf_Send_EmailFinal</InArgument>
         <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">True</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[arg_inStrEmailRemetente]" DisplayName="Get Credential" FolderPath="[arg_inStrOrchFolder]" sap:VirtualizedContainerService.HintSize="418,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[arg_inSecSecurePassword]" Username="[arg_inStrUsername]" />
-    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="418,411" sap2010:WorkflowViewState.IdRef="RetryScope_3">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[arg_inStrEmailRemetente]" DisplayName="Get Credential" FolderPath="[arg_inStrOrchFolder]" sap:VirtualizedContainerService.HintSize="376,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[arg_inSecSecurePassword]" Username="[arg_inStrUsername]" />
+    <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="376,319" sap2010:WorkflowViewState.IdRef="RetryScope_3">
       <ui:RetryScope.ActivityBody>
         <ActivityAction>
-          <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="376,237" sap2010:WorkflowViewState.IdRef="Sequence_75">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[arg_inArrScreenshotFiles]" Body="[String.Format(arg_inStrCorpoEmail, arg_inStrNomeProjeto, arg_inDatHoraInicio.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;), arg_inDatHoraFinal.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;))]" DisplayName="Send Email Final" Email="[arg_inStrUsername]" EnableSSL="True" From="[arg_inStrUsername]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_5" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[arg_inSecSecurePassword]" Server="smtp.office365.com" Subject="[arg_inStrAssuntoEmail]" To="[arg_inStrDestinatario]">
-              <ui:SendMail.Files>
-                <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                  <InArgument x:TypeArguments="x:String">[arg_inIEPlanilhaAnalitico]</InArgument>
-                </scg:List>
-              </ui:SendMail.Files>
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:SendMail>
-          </Sequence>
-        </ActivityAction>
-      </ui:RetryScope.ActivityBody>
-      <ui:RetryScope.Condition>
-        <ActivityFunc x:TypeArguments="x:Boolean" />
-      </ui:RetryScope.Condition>
-    </ui:RetryScope>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="418,51" sap2010:WorkflowViewState.IdRef="CommentOut_2">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Atividades Ignoradas" sap:VirtualizedContainerService.HintSize="418,411" sap2010:WorkflowViewState.IdRef="Sequence_72">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:RetryScope DisplayName="Retry Scope - Email Final" sap:VirtualizedContainerService.HintSize="376,319" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:05">
-            <ui:RetryScope.ActivityBody>
-              <ActivityAction>
-                <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" Body="[String.Format(arg_inStrCorpoEmail, arg_inStrNomeProjeto, arg_inDatHoraInicio.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;), arg_inDatHoraFinal.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;))]" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendOutlookMail_1" Importance="Normal" IsBodyHtml="False" IsDraft="False" Sensitivity="Normal" Subject="[arg_inStrAssuntoEmail]" To="[arg_inStrDestinatario]">
-                  <ui:SendOutlookMail.Files>
-                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
-                  </ui:SendOutlookMail.Files>
-                  <sap:WorkflowViewStateService.ViewState>
-                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                    </scg:Dictionary>
-                  </sap:WorkflowViewStateService.ViewState>
-                </ui:SendOutlookMail>
-              </ActivityAction>
-            </ui:RetryScope.ActivityBody>
-            <ui:RetryScope.Condition>
-              <ActivityFunc x:TypeArguments="x:Boolean" />
-            </ui:RetryScope.Condition>
+          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" TimeoutMS="{x:Null}" AttachmentsCollection="[arg_inArrScreenshotFiles]" Body="[String.Format(arg_inStrCorpoEmail, arg_inStrNomeProjeto, arg_inDatHoraInicio.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;), arg_inDatHoraFinal.ToString(&quot;dd/MM/yyyy HH:mm:ss&quot;))]" DisplayName="Send Email Final" Email="[arg_inStrUsername]" EnableSSL="True" From="[arg_inStrUsername]" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendMail_6" IsBodyHtml="True" Port="587" SecureConnection="Auto" SecurePassword="[arg_inSecSecurePassword]" Server="smtp.office365.com" Subject="[arg_inStrAssuntoEmail]" To="[arg_inStrDestinatario]">
+            <ui:SendMail.Files>
+              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                <InArgument x:TypeArguments="x:String">[arg_inStrPlanilhaAnalitico]</InArgument>
+              </scg:List>
+            </ui:SendMail.Files>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-          </ui:RetryScope>
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="418,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
+          </ui:SendMail>
+        </ActivityAction>
+      </ui:RetryScope.ActivityBody>
+      <ui:RetryScope.Condition>
+        <ActivityFunc x:TypeArguments="x:Boolean" />
+      </ui:RetryScope.Condition>
+    </ui:RetryScope>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke sq_Write_Log_InicioFim workflow" sap:VirtualizedContainerService.HintSize="376,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows_T2C\wf_Write_LogInicioFim.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="arg_inStrWfName">wf_Send_EmailFinal</InArgument>
         <InArgument x:TypeArguments="x:Boolean" x:Key="arg_inBooInicio">False</InArgument>

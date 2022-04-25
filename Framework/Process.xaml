@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1238,2970</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1216,3001</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="68">
@@ -85,7 +85,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="894,2905" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoque as principais etapas do processo de negócios, que geralmente são implementadas por vários subfluxos de trabalho.&#xA;&#xA;Se uma BusinessRuleException for lançada, a transação será ignorada.&#xA;Se ocorrer outro tipo de exceção, a transação atual pode ser repetida." DisplayName="Process" sap:VirtualizedContainerService.HintSize="894,2936" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strCodConsumidor" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="CNPJ necessário para realizar o login, Informação da planilha, que está sendo extraída da fila do Orch" Name="var_strLogin" />
@@ -108,7 +108,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="852,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Iniciando Processo&quot;]" />
-    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Pega as informações da Fila" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="852,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+    <ui:MultipleAssign sap2010:Annotation.AnnotationText="Extrai as informações da Fila" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="852,224" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -151,7 +151,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MultipleAssign>
-    <Sequence DisplayName="Criando Pasta do Mes Atual" sap:VirtualizedContainerService.HintSize="852,924" sap2010:WorkflowViewState.IdRef="Sequence_30">
+    <Sequence DisplayName="Criando Pasta do Mes Atual" sap:VirtualizedContainerService.HintSize="852,955" sap2010:WorkflowViewState.IdRef="Sequence_30">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:Boolean" Name="var_strPastaExiste" />
         <Variable x:TypeArguments="x:String" Name="var_strPastaMes" />
@@ -162,7 +162,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign sap:VirtualizedContainerService.HintSize="797,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign DisplayName="Assign - Mês/Ano Atual" sap:VirtualizedContainerService.HintSize="755,60" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[var_strPastaMes]</OutArgument>
         </Assign.To>
@@ -170,7 +170,7 @@
           <InArgument x:TypeArguments="x:String">[now.ToString("MM-yyyy")]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="797,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign DisplayName="Assign - Caminho PDF" sap:VirtualizedContainerService.HintSize="755,60" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[var_strNomePasta]</OutArgument>
         </Assign.To>
@@ -178,32 +178,30 @@
           <InArgument x:TypeArguments="x:String">["H:\Concessionarias\2022\Agua\" + var_strPastaMes + "\"]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:FolderExistsX DisplayName="Folder Exists" Exists="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="797,132" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[var_strNomePasta]" />
-      <If Condition="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="797,460" sap2010:WorkflowViewState.IdRef="If_2">
+      <ui:FolderExistsX DisplayName="Pasta Existe" Exists="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="755,132" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[var_strNomePasta]" />
+      <If sap2010:Annotation.AnnotationText="Se a variável for True então a pasta ja foi criada anteriormente, se não, cria uma pasta no caminho indicado pela variável." Condition="[var_strPastaExiste]" sap:VirtualizedContainerService.HintSize="755,491" sap2010:WorkflowViewState.IdRef="If_2">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
         <If.Then>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,183" sap2010:WorkflowViewState.IdRef="Sequence_28">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Pasta já criada anteriormente&quot;]" />
-          </Sequence>
+          <ui:LogMessage DisplayName="Log Message - Pasta Criada" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Pasta já criada anteriormente&quot;]" />
         </If.Then>
         <If.Else>
-          <Sequence sap:VirtualizedContainerService.HintSize="376,302" sap2010:WorkflowViewState.IdRef="Sequence_29">
+          <Sequence DisplayName="Se a pasta não existe" sap:VirtualizedContainerService.HintSize="376,302" sap2010:WorkflowViewState.IdRef="Sequence_29">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Criando pasta&quot;]" />
+            <ui:LogMessage DisplayName="Log Message - Criando Pasta" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Criando pasta&quot;]" />
             <ui:CreateDirectory ContinueOnError="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[var_strNomePasta]" />
           </Sequence>
         </If.Else>
       </If>
     </Sequence>
-    <Assign sap:VirtualizedContainerService.HintSize="852,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Assign - Mes e Ano atual" sap:VirtualizedContainerService.HintSize="852,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[var_strMesAnoAtual]</OutArgument>
       </Assign.To>
@@ -211,7 +209,7 @@
         <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("MMMM", System.Globalization.CultureInfo.CreateSpecificCulture("pt")).ToString + " " + now.ToString("yyyy")]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign DisplayName="Assign - Select no BD" sap:VirtualizedContainerService.HintSize="852,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign - Query Select no BD" sap:VirtualizedContainerService.HintSize="852,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[var_strSelectBD]</OutArgument>
       </Assign.To>
@@ -221,9 +219,15 @@
     </Assign>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Select_VerificacaoBD workflow" sap:VirtualizedContainerService.HintSize="852,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="WFs\wf_Select_VerificacaoBD.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">[arg_inDicConfig]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrSelectBD">[var_strSelectBD]</InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_outResultSelect">[var_dtResultSelect]</OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="arg_inDicConfig">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="arg_inDicConfig" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="arg_inStrSelectBD">
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strSelectBD" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="arg_outDtResultSelect">
+          <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="var_dtResultSelect" />
+        </OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If sap2010:Annotation.AnnotationText="Se o resultado do Select/Verificação for maior que 0, então a fatura já foi baixada, se não, continua o processo para realizar o download da fatura." Condition="[var_dtResultSelect.RowCount &gt; 0]" sap:VirtualizedContainerService.HintSize="852,1030" sap2010:WorkflowViewState.IdRef="If_1">
@@ -233,10 +237,10 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Código do Cliente já cadastrado no BD&quot;]" />
+        <ui:LogMessage DisplayName="Log Message - Já existe fatura no BD" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Código do Cliente já cadastrado no BD&quot;]" />
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="473,841" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <Sequence DisplayName="Se nçao existir fatura no BD" sap:VirtualizedContainerService.HintSize="473,841" sap2010:WorkflowViewState.IdRef="Sequence_27">
           <Sequence.Variables>
             <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Nome completo do PDF (Contendo caminho para salvar e nome)" Name="var_strNomeCompletoPDF" />
             <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Query para realizar Insert dos dados no BD" Name="var_strInsertBD" />
@@ -248,13 +252,21 @@
           </sap:WorkflowViewStateService.ViewState>
           <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke wf_Login_SANASA workflow" sap:VirtualizedContainerService.HintSize="431,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="WFs\wf_Login_SANASA.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <InOutArgument x:TypeArguments="x:String" x:Key="arg_instrCodConsumidor">[var_strCodConsumidor]</InOutArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="arg_instrLogin">[var_strLogin]</InArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrMes">[var_strMesRef]</OutArgument>
-              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrAno">[var_strAnoRef]</OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrMes">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strMesRef" />
+              </OutArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="arg_outStrAno">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strAnoRef" />
+              </OutArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="arg_inStrCodConsumidor">
+                <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="var_strCodConsumidor" />
+              </InOutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="arg_inStrLogin">
+                <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="var_strLogin" />
+              </InArgument>
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Informações para Salvar o Arquivo PDF" DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+          <ui:MultipleAssign sap2010:Annotation.AnnotationText="Informações para Salvar o Arquivo PDF" DisplayName="Multiple Assign - Variáveis para poder salvar PDF" sap:VirtualizedContainerService.HintSize="431,193" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
             <ui:MultipleAssign.AssignOperations>
               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
